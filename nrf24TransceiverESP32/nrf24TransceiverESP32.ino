@@ -60,9 +60,9 @@ void processSerialCommand() {
   if (serialInput.startsWith("# ")) {
     String message = serialInput.substring(2);
     if (sendMessage(message)) {
-      Serial.println("Message sent successfully: " + (message.length() >= 5 ? message.substring(0, 5) + "....." : message));
+      Serial.println("Message sent successfully: " + (message.length() > 5 ? message.substring(0, 5) + "....." : message));
     } else {
-      Serial.println("Message failed to send.");
+      Serial.println("Message was not acknowledged.");
     }
   } else {
     Serial.println("Invalid command. Use '#send your_message'");
